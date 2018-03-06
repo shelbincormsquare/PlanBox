@@ -2,11 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PlanBox.Core;
+using PlanBox.Core.Repositories;
+using PlanBox.Persistence;
+using PlanBox.Persistence.Repositories;
 
 namespace PlanBox
 {
@@ -20,9 +26,13 @@ namespace PlanBox
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+       public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddAutoMapper ();
+            services.AddDbContext<PlanBoxDbContext> (options => options.UseSqlServer (Configuration.GetConnectionString ("Default")));
+            services.AddMvc ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
