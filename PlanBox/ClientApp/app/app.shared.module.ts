@@ -12,6 +12,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { DashboardLayoutComponent } from './components/_shared/layouts/dashboard/dashboard-layout/dashboard-layout.component';
 import { PublicLayoutComponent } from './components/_shared/layouts/public/public-layout/public-layout.component';
+import { ProjectService } from './services/project.service';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { PublicLayoutComponent } from './components/_shared/layouts/public/publi
         CommonModule,
         HttpModule,
         FormsModule,
+        // routing,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
@@ -35,6 +37,9 @@ import { PublicLayoutComponent } from './components/_shared/layouts/public/publi
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
         ])
+    ],
+    providers: [
+        ProjectService
     ]
 })
 export class AppModuleShared {
