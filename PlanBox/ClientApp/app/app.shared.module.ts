@@ -1,3 +1,7 @@
+import { TopnavComponent } from './components/_shared/layouts/dashboard/topnav/topnav.component';
+import { FooterComponent } from './components/_shared/layouts/dashboard/footer/footer.component';
+import { SidenavComponent } from './components/_shared/layouts/dashboard/sidenav/sidenav.component';
+import { HeaderComponent } from './components/_shared/layouts/dashboard/header/header.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,6 +17,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { DashboardLayoutComponent } from './components/_shared/layouts/dashboard/dashboard-layout/dashboard-layout.component';
 import { PublicLayoutComponent } from './components/_shared/layouts/public/public-layout/public-layout.component';
 import { ProjectService } from './services/project.service';
+import { routing } from './app.routing';
 
 
 @NgModule({
@@ -23,20 +28,24 @@ import { ProjectService } from './services/project.service';
         FetchDataComponent,
         HomeComponent,
         PublicLayoutComponent,
-        DashboardLayoutComponent
+        DashboardLayoutComponent,
+        HeaderComponent,
+        SidenavComponent,
+        FooterComponent,
+        TopnavComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
-        // routing,
-        RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
-            { path: '**', redirectTo: 'home' }
-        ])
+        routing,
+        // RouterModule.forRoot([
+        //     { path: '', redirectTo: 'home', pathMatch: 'full' },
+        //     { path: 'home', component: HomeComponent },
+        //     { path: 'counter', component: CounterComponent },
+        //     { path: 'fetch-data', component: FetchDataComponent },
+        //     { path: '**', redirectTo: 'home' }
+        // ])
     ],
     providers: [
         ProjectService
