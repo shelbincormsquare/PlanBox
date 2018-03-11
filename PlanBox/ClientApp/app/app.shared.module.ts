@@ -1,3 +1,4 @@
+import { ProjectFormComponent } from './components/projects/project-form/project-form.component';
 import { TopnavComponent } from './components/_shared/layouts/dashboard/topnav/topnav.component';
 import { FooterComponent } from './components/_shared/layouts/dashboard/footer/footer.component';
 import { SidenavComponent } from './components/_shared/layouts/dashboard/sidenav/sidenav.component';
@@ -18,6 +19,7 @@ import { DashboardLayoutComponent } from './components/_shared/layouts/dashboard
 import { PublicLayoutComponent } from './components/_shared/layouts/public/public-layout/public-layout.component';
 import { ProjectService } from './services/project.service';
 import { routing } from './app.routing';
+import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { routing } from './app.routing';
         HeaderComponent,
         SidenavComponent,
         FooterComponent,
-        TopnavComponent
+        TopnavComponent,
+        ProjectFormComponent,
+        ProjectListComponent
     ],
     imports: [
         CommonModule,

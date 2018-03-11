@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
+import { ProjectFormComponent } from './components/projects/project-form/project-form.component';
 
 
 
@@ -21,10 +22,10 @@ const appRoutes: Routes = [
     //     { path: '**', redirectTo: 'home' }
     //Site routes goes here 
     {
-        path: 'dash',
+        path: '',
         component: DashboardLayoutComponent,
         children: [
-            // { path: 'projects/new', component: ProjectFormComponent },
+            { path: 'projects/new', component: ProjectFormComponent },
             // { path: 'projects/list', component: ProjectListComponent },
             // { path: 'projects/:id', component: ProjectFormComponent }
         ]
