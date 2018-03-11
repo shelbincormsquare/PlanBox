@@ -15,6 +15,7 @@ export class ProjectFormComponent implements OnInit {
   form: FormGroup;
   constructor(private router: Router, private route: ActivatedRoute, private projectService: ProjectService) {
     this.project = new Project();
+    
   }
 
   ngOnInit() {
