@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { ProjectFormComponent } from './components/projects/project-form/project-form.component';
+import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 
 
 
@@ -26,8 +27,8 @@ const appRoutes: Routes = [
         component: DashboardLayoutComponent,
         children: [
             { path: 'projects/new', component: ProjectFormComponent },
-            // { path: 'projects/list', component: ProjectListComponent },
-            // { path: 'projects/:id', component: ProjectFormComponent }
+            { path: 'projects', component: ProjectListComponent },
+            { path: 'projects/:id', component: ProjectFormComponent }
         ]
     },
 

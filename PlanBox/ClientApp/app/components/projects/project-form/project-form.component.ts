@@ -21,7 +21,7 @@ export class ProjectFormComponent implements OnInit {
   ngOnInit() {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
-      this.title = id ? 'Edit User' : 'New User';
+      this.title = id ? 'Edit Project' : 'New Project';
 
       if (!id)
         return;
