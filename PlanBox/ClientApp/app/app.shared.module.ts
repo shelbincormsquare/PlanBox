@@ -6,7 +6,7 @@ import { HeaderComponent } from './components/_shared/layouts/dashboard/header/h
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -43,6 +43,7 @@ import { ProjectListComponent } from './components/projects/project-list/project
         HttpModule,
         FormsModule,
         routing,
+         ReactiveFormsModule
         // RouterModule.forRoot([
         //     { path: '', redirectTo: 'home', pathMatch: 'full' },
         //     { path: 'home', component: HomeComponent },

@@ -2,7 +2,7 @@ import { Component, OnInit, ValueProvider } from '@angular/core';
 import { ProjectService } from '../../../services/project.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Project } from '../../../models/project';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-project-form',
@@ -13,9 +13,9 @@ export class ProjectFormComponent implements OnInit {
   title: string;
   project: Project;
   form: FormGroup;
-  constructor(private router: Router, private route: ActivatedRoute, private projectService: ProjectService) {
+  constructor(private router: Router, private route: ActivatedRoute, private projectService: ProjectService, private fb: FormBuilder) {
     this.project = new Project();
-    
+    this.createForm();
   }
 
   ngOnInit() {
@@ -36,13 +36,15 @@ export class ProjectFormComponent implements OnInit {
           });
     });
   }
-
+  createForm() {
+    this.form = this.fb.group({
+      name: '',
+      id: ''
+    });
+  }
 
   save() {
-    // var result,
-    //   userValue = this.form.value;
-console.log(this.form)
-    console.log("userValue");
+    console.log(this.form.value);
   }
 
 }
