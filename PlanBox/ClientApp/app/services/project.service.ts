@@ -12,23 +12,24 @@ export class ProjectService {
     return this.http.get(this.projectsEndpoint).map(res => res.json());
   }
 
-  getProject(id:number) {
+  getProject(id: number) {
     return this.http.get(this.projectsEndpoint + '/' + id)
       .map(res => res.json());
   }
 
-  // create(project) {
-  //   return this.http.post(this.projectsEndpoint, project)
-  //     .map(res => res.json());
-  // }
+  create(project: Project) {
+    
+    return this.http.post(this.projectsEndpoint, project)
+      .map(res => res.json());
+  }
 
-  // update(project: Project) {
-  //   return this.http.put(this.projectsEndpoint + '/' + project.id, project)
-  //     .map(res => res.json());
-  // }
+  update(project: Project) {
+    return this.http.put(this.projectsEndpoint + '/' + project.id, project)
+      .map(res => res.json());
+  }
 
-  // delete(id) {
-  //   return this.http.delete(this.projectsEndpoint + '/' + id)
-  //     .map(res => res.json());
-  // }
+  delete(id: number) {
+    return this.http.delete(this.projectsEndpoint + '/' + id)
+      .map(res => res.json());
+  }
 }

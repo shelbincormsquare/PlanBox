@@ -39,12 +39,25 @@ export class ProjectFormComponent implements OnInit {
   createForm() {
     this.form = this.fb.group({
       name: '',
-      id: ''
+      description: '',
+      longDescription: '',
+      shortDescription: '',
     });
   }
 
   save() {
     console.log(this.form.value);
+    var result;
+    var projectValue: Project = this.form.value;
+    console.log("INPUT", projectValue);
+    if (projectValue.id) {
+      result = this.projectService.update(projectValue);
+    } else {
+      result = this.projectService.create(projectValue);
+    }
+
+    result.subscribe(data => this.router.navigate(['projects']));
+    console.log("REUSLT", result);
   }
 
 }
